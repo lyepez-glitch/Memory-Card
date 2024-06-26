@@ -1,0 +1,15 @@
+.cardContainer {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#title {
+    /*make it go to top left*/
+}
+
+#score {
+    /*make it go to top right*/
+}
+
+
+}
