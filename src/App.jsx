@@ -9,22 +9,30 @@ import Card from './components/Card.jsx'
 function App() {
   const cardAmount = 12;
 
+
   const [pokemons,setPokemons] = useState([])
 
   const[total,setTotal] = useState(0);
 
-  //setPokemons(pokemons)
-  // const countRef = useRef(0);
-  let otherCount = 0;
+  // const firstPokemon = await getPokemon()
+
+  // console.log('first pokemon',firstPokemon)
+
+
+
+
+
 
     useEffect(()=>{
       async function fetchData(){
 
         const initialPokemons = await getPokemon();
+
         console.log('initialPokemons',initialPokemons,initialPokemons.length)
 
         if(initialPokemons.length !== 0){
-          setPokemons(shuffle(initialPokemons))
+          const shuffledPokemons = shuffle(initialPokemons);
+          setPokemons(shuffledPokemons.slice(0,12));
         }
 
         }
@@ -32,22 +40,24 @@ function App() {
 
      },[])
 
-     useEffect(() => {
-      const cards = document.querySelectorAll('.card');
-      let counter = 0;
-      cards.forEach((card)=>{
-        counter++;
-        if(counter > 12){
-          card.style.display = 'none'
-        }
-      })
-   },[pokemons]);
+  //    useEffect(() => {
+  //     const cards = document.querySelectorAll('.card');
+  //     let counter = 0;
+  //     cards.forEach((card)=>{
+  //       counter++;
+  //       if(counter > 12){
+  //         card.style.display = 'none'
+  //       }
+  //     })
+  //  },[pokemons]);
 
 
 
 
-  const handleCardClick=()=>{
-    setPokemons(shuffle(pokemons))
+  function handleCardClick(){
+    console.log('clicked')
+    const shuffledPokemon = shuffle(pokemons);
+    setPokemons(shuffledPokemon.slice(0,12))
     setTotal(total + 1);
   }
 
@@ -62,8 +72,11 @@ function App() {
     <div>Number of changes: {total}</div>
      {console.log('count',total,pokemons)}
       { pokemons.map((pokemon,index) =>
+      {
+        console.log('pokemon 66',pokemon)
+        return (<Card  key ={index} img={pokemon.image} desc={pokemon.description} name={pokemon.name} clickFunc={ handleCardClick}/>)
+      }
 
-        (<Card key ={index} img={pokemon.image} abilities={pokemon.abilities} name={pokemon.name} clickFunc={ handleCardClick}/>)
 
         )
       }
