@@ -1,10 +1,14 @@
-think about what components need
-need a scoreboard to count and show current score
-and best score
-make function to display cards in random order whenever a card is clicked
-this func should be called when the component mounts
-make cards that have images and possibly informational text
-these cards and text fetched from an api like giphy or pokemon api
-set up folder structure
+
+
+
+
+
+
 style your app
 push to github and deploy
+
+
+
+
+
+
