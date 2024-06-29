@@ -73,7 +73,7 @@ function App() {
     <h1 id="title">Pokemon Memory Game</h1>
     <p>Get points by clicking on an image but don't click on any more than once!</p>
     <div id="score">Score:{total}</div>
-    <div>Best score:{total > 0? bestScore + 1:bestScore}</div>
+    <div id="bestScore">Best score:{total > 0? bestScore + 1:bestScore}</div>
     <div className="cardContainer">
      {console.log('count',total,pokemons)}
       { pokemons.map((pokemon,index) =>

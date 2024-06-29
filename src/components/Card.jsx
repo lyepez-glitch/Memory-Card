@@ -4,7 +4,7 @@ function Card({img,desc,name,clickFunc}){
   return(<div className="card">
     <div>{name}</div>
     <img src={img} name={name} onClick = {clickFunc} alt={name}/>
-    <p>{desc}</p>
+    <bold>><p>{desc}</p></bold>
 
   </div>
   );
